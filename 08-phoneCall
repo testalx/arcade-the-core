@@ -1,0 +1,10 @@
+int phoneCall(int min1, int min2_10, int min11, int S) {
+int n=0;
+    if(S>=min1)
+    {n++;S-=min1;} 
+    while(S>=min2_10&&n<10)
+    {n++;S-=min2_10;}
+    while(S>=min11&&n>=10)
+    {n++;S-=min11;}
+    return n;
+}
