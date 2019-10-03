@@ -1,0 +1,15 @@
+int arrayPacking(std::vector<int> a) {
+ 
+if(a.empty())
+return 0;
+int x;
+ if(a.size()==4)
+x=a[0]|(a[1]<<8)|(a[2]<<16)|(a[3]<<24);
+  if(a.size()==3)
+x = a[0]|(a[1]<<8)|(a[2]<<16);
+    if(a.size()==2)
+x=a[0]|(a[1]<<8);
+    if(a.size()==1)
+    x=a[0];
+return x;
+}
