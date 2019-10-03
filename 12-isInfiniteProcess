@@ -1,0 +1,9 @@
+bool isInfiniteProcess(int a, int b) {
+if(a>b)return true;
+    if(a%2)
+    if(b%2) return false;
+    else return true; 
+else 
+    if(b%2)return true;
+    else return false;
+}
