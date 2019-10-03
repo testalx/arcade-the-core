@@ -1,0 +1,12 @@
+bool willYou(bool young, bool beautiful, bool loved) {
+
+   if(loved)
+       if(young&&beautiful)
+           return false;
+        else return true;
+    else
+        if(!young||!beautiful)
+            return false;
+    else return true;
+    
+}
