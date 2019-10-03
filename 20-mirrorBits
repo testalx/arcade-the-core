@@ -1,0 +1,13 @@
+int mirrorBits(int a) {
+vector<int>v;
+int n,i;
+while(a)
+{v.push_back(a%2);
+a/=2;}
+n=v.size();
+for(i=0;i<n;i++)
+{//cout<<v[i];
+ a=a*2+v[i];
+}
+return a;
+}
