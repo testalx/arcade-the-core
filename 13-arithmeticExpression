@@ -1,0 +1,4 @@
+bool arithmeticExpression(int A, int B, int C) {
+if(A+B==C||A-B==C||A*B==C||A/1.0/B==C) return true;
+    else return false;
+}
