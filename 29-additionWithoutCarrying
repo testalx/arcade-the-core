@@ -1,0 +1,12 @@
+int additionWithoutCarrying(int param1, int param2) {
+int rez=0,p=1;
+while(param1||param2)
+{int s=param1%10+param2%10;
+ s%=10;
+rez=rez+p*s;
+    p*=10;
+param1/=10;
+param2/=10;
+}
+return rez;
+}
