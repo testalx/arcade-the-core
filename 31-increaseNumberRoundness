@@ -1,0 +1,13 @@
+bool increaseNumberRoundness(int n) {
+
+while(n%10==0&&n)
+    n/=10;
+while(n)
+if(n%10==0) {
+    break;
+}
+else n/=10;
+if(n)    return true;
+else return false;
+
+}
