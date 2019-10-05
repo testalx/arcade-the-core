@@ -1,0 +1,10 @@
+int candles(int candlesNumber, int makeNew) {
+int n=candlesNumber,x=makeNew,k=n,r=n;
+while(r>=x)
+{ n=r/x;
+  r=n+r%x;
+  k+=n;
+}
+return k;
+//return (candlesNumber-1)*(makeNew-1);   //mai scurt
+}
