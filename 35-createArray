@@ -1,0 +1,6 @@
+std::vector<int> createArray(int size) {
+vector<int> v;
+for(int i=1;i<=size;i++)
+v.push_back(1);
+return v;
+}
