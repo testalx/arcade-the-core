@@ -1,0 +1,31 @@
+int rounders(int value) {
+int n=value,x=0,p=1;
+while(n>9)
+{
+    if(n%10>=5)
+        n=n/10+1;
+    else n/=10;
+p*=10;
+}
+x=n*p;
+/*
+while(n)
+{
+if(n>=10)
+{int c=n%10;
+if(c<5)
+    c=0;
+else{
+c=0;    n/=10;n++;n*=10;
+}
+ x=x+p*c;
+p*=10;   
+
+}
+else x=x+p*n;
+n/=10;
+}
+*/
+return x;
+
+}
