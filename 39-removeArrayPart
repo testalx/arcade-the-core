@@ -1,0 +1,8 @@
+std::vector<int> removeArrayPart(std::vector<int> inputArray, int l, int r) {
+int i;
+vector<int>v;
+for(i=0;i<inputArray.size();i++)
+    if(i<l||i>r)
+    v.push_back(inputArray[i]);
+return v;
+}
