@@ -1,0 +1,14 @@
+int pagesNumberingWithInk(int current, int numberOfDigits) {
+int n=(int)log10(current)+1;
+cout<<current<<",";
+int k=0;numberOfDigits-=n;
+while(numberOfDigits>=n)
+{
+    k++;
+n=(int)log10(current+k)+1;
+numberOfDigits-=n;
+//    current++;
+cout<<current+k<<",";
+}
+return current+k;
+}
