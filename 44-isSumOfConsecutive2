@@ -1,0 +1,17 @@
+int isSumOfConsecutive2(int n) {
+int k=0;
+for(int a=1;a<=n/2;a++)
+{ 
+  for(int nrt=1;nrt<10;nrt++)
+  {int s=0;
+  for(int i=0;i<nrt;i++)
+    s+=(a+i);
+  if(s==n) 
+        k++;
+  } 
+
+}
+
+
+return k;
+}
