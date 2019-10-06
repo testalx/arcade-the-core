@@ -1,0 +1,14 @@
+bool isPower(int n) {
+if(n==1) return true;
+else{
+for(int a=2;a<=sqrt(n);a++)
+{ 
+  for(int b=1;b<=sqrt(n);b++)
+       if(pow(a,b)==n) return true;
+
+    
+}
+
+return false;
+}
+}
