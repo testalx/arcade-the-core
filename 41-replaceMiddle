@@ -1,0 +1,15 @@
+std::vector<int> replaceMiddle(std::vector<int> arr) {
+vector<int> v;
+int i,n=arr.size();
+if(n%2)
+    return arr;
+else
+{for(i=0;i<n/2-1;i++)
+        //if(i!=n/2-1)
+            v.push_back(arr[i]);
+v.push_back(arr[i+1]+arr[i]);
+for(i=n/2+1;i<n;i++)
+    v.push_back(arr[i]);
+return v;
+}
+}
