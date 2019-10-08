@@ -1,0 +1,22 @@
+int comfortableNumbers(int L, int R) {
+int sa,a,b,sb,c,k=0;
+for(a=L;a<R;a++)
+    for(b=a+1;b<=R;b++)
+    {
+     bool ok;
+           if(a-b) ok =true;
+            else ok=false;
+//cout<<"\nverificam pe "<<a<<" si "<<b;
+if(ok){int x=a,y=b,sa=0,sb=0;;
+     while(x)
+     {sa+=x%10;x/=10;}
+    while(y)
+    {sb+=y%10;y/=10;}
+
+if (a<b-sb||a>b+sb) ok=false;
+if(b<a-sa||b>a+sa) ok=false;
+      }
+  if(ok) k++;
+    }
+return k;
+}
