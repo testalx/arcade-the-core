@@ -1,0 +1,8 @@
+std::string encloseInBrackets(std::string inputString) {
+
+inputString.push_back(')');
+cout<<inputString;
+inputString.insert(0,1,'(');
+return inputString;
+
+}
