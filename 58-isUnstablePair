@@ -1,0 +1,13 @@
+bool isUnstablePair(std::string filename1, std::string filename2) {
+string s1=filename1,s2=filename2;
+for(unsigned i=0;i<s1.length();i++)
+    if(s1[i]>=97)
+        s1[i]-=32;
+for(unsigned i=0;i<s2.length();i++)
+    if(s2[i]>=97)
+        s2[i]-=32;
+cout<<endl<<filename1<<' ' <<s1<<endl<<filename2<<' ' <<s2;
+if(s1<s2&&filename1>filename2||s1>s2&&filename1<filename2)
+    return 1;
+else return 0;
+}
