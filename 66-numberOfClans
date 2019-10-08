@@ -1,0 +1,23 @@
+int numberOfClans(std::vector<int> divisors, int k) {
+int a,b,i,d=0,n=0;
+vector<int>v(k+1,0);
+for(a=1;a<=k;a++)
+{
+ if(!v[a])   
+ { v[a]=++n;   //nr clanului curent. acu cautam daca e fun preten
+  for(b=a+1;b<=k;b++)
+  {
+   bool sunt=1;
+  for(i=0;i<divisors.size();i++)
+    if(a%divisors[i]==0&&b%divisors[i] || a%divisors[i]&&b%divisors[i]==0) sunt=0;
+   if(sunt)
+      {v[b]=n;
+     // cout<<a<<" e prieten cu "<<b<<endl;
+      }
+ // else cout<<a<<" NU E preten cu "<<b<<endl;
+  }
+ 
+}
+}
+return n;
+}
