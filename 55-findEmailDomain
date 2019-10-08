@@ -1,0 +1,12 @@
+std::string findEmailDomain(std::string address) {
+unsigned p,i,n=address.length();
+for(p=n-1;p>=0;p--)
+    if(address[p]=='@')
+        break;
+//cout<<p<<endl;
+std::string s="";
+for(i=p+1;i<n;i++)
+    s.push_back(address[i]);
+//cout<<s;
+return s;
+}
