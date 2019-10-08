@@ -1,0 +1,6 @@
+int houseNumbersSum(std::vector<int> inputArray) {
+int s=0,i=0;
+while(inputArray[i])
+    s+=inputArray[i++];
+return s;
+}
