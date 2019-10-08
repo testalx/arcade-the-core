@@ -1,0 +1,9 @@
+std::string properNounCorrection(std::string noun) {
+if(noun[0]>=97)
+    noun[0]-=32;
+for(unsigned i=1;i<noun.length();i++)
+//cout<<noun[i];
+if(noun[i]>=65&&noun[i]<='Z')
+    noun[i]+=32;
+return noun;
+}
