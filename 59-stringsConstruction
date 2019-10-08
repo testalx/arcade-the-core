@@ -1,0 +1,25 @@
+int stringsConstruction(std::string A, std::string B) {
+vector <int> a(26,0),b(26,0);
+unsigned i,n;
+for(i=0;i<A.length();i++)
+    a[A[i]-'a']++;
+for(i=0;i<B.length();i++)
+    b[B[i]-'a']++;
+i=0;while(a[i]==0)i++;
+int k=b[i]/a[i];
+//cout<<"pozitia "<<i<<" raportul "<<k<<"a[i]="<<a[i]<<"b[i]="<<b[i];
+//return k; k nu e chiar corect, trebuie sa luam minimul dintre rapoartele INTREGI
+
+while(i<26)
+{if(a[i]&&b[i]/a[i]<k)
+    k=b[i]/a[i];
+i++;
+}
+ return k;
+
+/*cout<<endl;
+for(i=0;i<26;i++) cout<<a[i]<<' ';
+cout<<endl;
+for(i=0;i<26;i++) cout<<b[i]<<' ';
+*/
+}
