@@ -1,0 +1,33 @@
+std::vector<int> weakNumbers(int n) {
+vector<int> v,vv;
+v.push_back(n);vv.push_back(n);
+for(int i=1;i<=n;i++)
+{ int x=i;
+  int k=1;
+  for(int j=2;j<=x;j++)
+    if(x%j==0)
+        k++;
+ v.push_back(k);
+k=0;
+ for(int j=1;j<i;j++)
+    if(v[j]>v[i])
+        k++;
+vv.push_back(k);
+}
+for(int i=1;i<v.size();i++)
+ cout<<v[i]<<' '<<vv[i]<<'\n';
+
+//totul e bine. avem in vectorul v valoarea d si in vv valoarea weakness. mai trebuie sa punem in w val minima cred si nr de valori egale cu cea minima. poate este functii in std::vector pt asta
+vector<int> w(2);
+w[0]=0;
+w[1]=0;
+int m=0;
+for(int i=1;i<vv.size();i++)
+    if(vv[i]>m)
+        m=vv[i];
+w[0]=m;
+for(int i=1;i<vv.size();i++)
+    if(vv[i]==m)
+        w[1]++;
+return w;
+}
