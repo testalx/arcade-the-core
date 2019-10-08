@@ -1,0 +1,11 @@
+std::string htmlEndTagByStartTag(std::string startTag) {
+string s="";
+unsigned i,n=startTag.length();
+s.push_back('<');
+s.push_back('/');
+i=1;
+while(startTag[i]!=' '&&startTag[i]!=NULL&&startTag[i]!='>')
+    s.push_back(startTag[i++]);
+s.push_back('>');
+return s;
+}
