@@ -1,0 +1,7 @@
+std::vector<int> houseOfCats(int legs) {
+vector<int>a;
+for(int n=0;n<=legs/2;n++)
+if((legs-2*n)%4==0)
+ a.push_back(n);
+return a;
+}
