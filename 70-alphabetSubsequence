@@ -1,0 +1,6 @@
+bool alphabetSubsequence(std::string s) {
+for(unsigned i=0;i<s.length()-1;i++)
+    if(s[i]>=s[i+1])
+        return 0;
+return 1;
+}
