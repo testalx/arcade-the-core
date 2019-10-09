@@ -1,0 +1,31 @@
+std::string cipher26(std::string message) {
+string x;
+unsigned i,j,n=message.size(),s=0;
+/*vector<int>v;
+for(i=0;i<n;i++)
+{s+=message[i]-'a';
+s%=26;
+v.push_back(s);}
+for(i=0;i<n;i++)
+cout<<v[i]<<' ';
+for(i=0;i<n;i++)
+ x+=v[i]+'a';
+return x;
+*/
+//abia am reusit sa facem criptarea, dar noua ne trebe DECRIPTAREA
+i=0;
+x+=message[i];
+while(i<n-1)
+{i++;
+s=message[i]-'a';
+//cout<<"valoarea luata din mesaj este:"<<s<<endl;
+s+=26;
+
+s-=(message[i-1]-'a');
+//cout<<"valoarea care intra in sirul decriptat este:"<<s<<endl;
+if(s>25) s-=26;
+x+=s+'a';
+//cout<<"adica litera "<<x[x.size()-1]<<endl;
+}
+return x;
+}
