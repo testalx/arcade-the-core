@@ -1,0 +1,17 @@
+std::vector<std::string> newNumeralSystem(char number) {
+int x=number-'A';
+cout<<"x="<<x<<endl;
+vector<string>v;
+for(int i=0;i<=x/2;i++)
+{
+  string s="";
+  s.push_back(i+'A');
+  s.push_back(' ');
+   s.push_back('+');
+s.push_back(' ');
+  s.push_back(x-i+'A');
+// cout<<s<<endl;
+v.push_back(s);
+}
+return v;
+}
