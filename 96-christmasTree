@@ -1,0 +1,39 @@
+string[] christmasTree(int levelNum, int levelHeight) {
+    List<string> result = new List<string>();
+    List<string> middles = new List<string>();
+    List<string> foot = new List<string>();
+    string topCrown ="*";
+    string lastMiddleItem ="*";
+    string middleItem ="***";
+    string bottomCrown;
+    for(int j=0;j<levelNum;j++) {
+        for(int i=1;i<=levelHeight;i++) {
+            if(j==0) {
+                if(i>0) {
+                    topCrown=" "+topCrown;
+                }
+            }
+            middleItem = "*"+middleItem+"*";
+            lastMiddleItem = middleItem;
+            middles.Add(new string(' ', levelHeight - i +levelNum-j-1)+middleItem);
+        }
+        topCrown=" "+topCrown;
+        middleItem = new string('*',(j+2)*2+1);
+    }
+    if(levelHeight%2==0) {
+        levelHeight++;
+        bottomCrown = new string(' ',(lastMiddleItem.Length - levelHeight)/2) + new string('*',levelHeight);
+    }
+    else {
+        bottomCrown = new string(' ',(lastMiddleItem.Length - levelHeight)/2) + new string('*',levelHeight);
+    }
+    for(int j=0;j<levelNum;j++) {
+        foot.Add(bottomCrown);
+    }
+    result.Add(topCrown);
+    result.Add(topCrown);
+    result.Add(topCrown.Replace(" *","***"));
+    result.AddRange(middles);
+    result.AddRange(foot);
+    return result.ToArray();
+}
