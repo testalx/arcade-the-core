@@ -1,0 +1,17 @@
+int timedReading(int maxLength, std::string text) {
+int nr=0;
+unsigned i=0,n=text.length();
+string cuv;
+while(i<n)
+{while(!(text[i]>='a'&&text[i]<='z'||text[i]>='A'&&text[i]<='Z')&&i<n)
+    i++;
+ cuv="";
+   while(text[i]>='a'&&text[i]<='z'||text[i]>='A'&&text[i]<='Z'&&i<n)
+    cuv.push_back(text[i++]);
+//cuv.push_back(NULL);
+cout<<cuv<<"\tlungime="<<cuv.length()<<endl;
+ if(cuv.length()<=maxLength&&cuv.length()>0)
+    nr++;
+}
+return nr;
+}
