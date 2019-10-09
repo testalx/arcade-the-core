@@ -1,0 +1,18 @@
+std::string integerToStringOfFixedWidth(int number, int width) {
+int n=number;
+string s="";
+while(n)
+{
+    s.insert(s.begin(),n%10+'0');
+    n/=10;
+}
+
+if(s.length()<width)
+    while(width-s.length()>0)
+        s.insert(s.begin(),'0');
+else if(s.length()>width)
+    while(s.length()-width>0)
+        s.erase(0,1);
+return s;
+
+}
