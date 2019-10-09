@@ -1,0 +1,6 @@
+std::vector<int> extractMatrixColumn(std::vector<std::vector<int>> matrix, int column) {
+vector<int>v;
+for(int i=0;i<matrix.size();i++)
+    v.push_back(matrix[i][column]);
+return v;
+}
