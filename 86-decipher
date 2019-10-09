@@ -1,0 +1,23 @@
+std::string decipher(std::string cipher) {
+string s;
+unsigned i,n=cipher.size();
+i=0;
+for(;i<n;i++)
+{ char c;string a="";
+    if(cipher[i]=='9')
+    {
+        a.push_back(cipher[i++]);
+        a.push_back(cipher[i]);    
+    }
+    if(cipher[i]=='1')
+    {
+        a.push_back(cipher[i++]);
+        a.push_back(cipher[i++]);
+        a.push_back(cipher[i]); 
+    }
+//cout<<a<<endl;
+    c=stoi(a);
+    s.push_back(c);
+}
+return s;
+}
