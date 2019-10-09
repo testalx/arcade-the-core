@@ -1,0 +1,8 @@
+std::vector<int> switchLights(std::vector<int> a) {
+int i,n;
+for(n=0;n<a.size();n++)
+    if(a[n])
+        for(i=0;i<=n;i++)
+            a[i]=1-a[i];
+return a;
+}
