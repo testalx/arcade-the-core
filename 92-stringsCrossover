@@ -1,0 +1,16 @@
+int stringsCrossover(std::vector<std::string> inputArray, std::string result) {
+int i,j,k,n=result.size(),count=0;
+bool ok;
+for(i=0;i<inputArray.size()-1;i++)
+    for(j=i+1;j<inputArray.size();j++)
+    {
+        cout<<"\nverificam sirurile "<<inputArray[i]<<" si "<<inputArray[j];
+    ok=1;
+    for(k=0;k<n;k++)
+        if(result[k]!=inputArray[i][k]&&result[k]!=inputArray[j][k])
+        {ok=0;break;}
+    if(ok)
+        count++;
+    }
+return count;
+}
