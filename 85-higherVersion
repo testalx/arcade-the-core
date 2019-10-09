@@ -1,0 +1,25 @@
+//am o versiune mai scurta la challenges si cu numere :))
+bool higherVersion(std::string ver1, std::string ver2) {
+unsigned i=0,j=0,n1=ver1.size(),n2=ver2.size(),p1=0,p2=0;
+bool ok=1;
+if(ver1==ver2) return 0;
+while(i<n1||j<n2)
+{ //cout<<"i="<<i<<" j="<<j<<"p1="<<p1<<"p2="<<p2<<endl;
+    if(ver1[i]!='.') i++;
+   if(ver2[j]!='.') j++;
+
+if((ver1[i]=='.'||ver1[i]=='\0')&&(ver2[j]=='.'||ver2[j]=='\0'))
+{
+    string n1=ver1.substr(p1,i-p1);
+    string n2=ver2.substr(p2,j-p2);
+    cout<<"comparam "<<n1<<" si "<<n2<<endl;
+int x=stoi(n1),y=stoi(n2);
+if(x>y) break;
+if(x<y) {ok=0;}
+i++;j++;
+p1=i;p2=j;
+}
+//i++;j++;
+}
+return ok;
+}
