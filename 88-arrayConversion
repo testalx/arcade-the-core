@@ -1,0 +1,16 @@
+int arrayConversion(std::vector<int> inputArray) {
+vector<int>v;
+int i,ok=1;
+while(inputArray.size()>1)
+{  v.clear();
+   if(ok)
+    for(i=0;i<inputArray.size();i+=2)
+        v.push_back(inputArray[i]+inputArray[i+1]);
+    else
+    for(i=0;i<inputArray.size();i+=2)
+        v.push_back(inputArray[i]*inputArray[i+1]);
+    ok=1-ok;
+    inputArray=v;
+}
+return inputArray[0];
+}
