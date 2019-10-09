@@ -1,0 +1,48 @@
+void parse(std::string s, std::vector<std::string> &v){
+     std::string num="";
+     for(int i=0;i<s.size();){
+          if(s[i]>='A')
+               v.push_back(string(1,s[i])),i++;
+          else{
+               while(s[i]<'a'&&i<s.size())
+                    num.push_back(s[i++]);
+               v.push_back(num),num="";
+          }
+     }
+     return ;
+}
+
+bool alphanumericLess(std::string s1, std::string s2) {
+     std::vector<std::string> v1,v2;
+     std::string cs1,cs2;
+     parse(s1,v1);
+     parse(s2,v2);
+     int n=v1.size()<v2.size()?v1.size():v2.size();
+     for(int i=0;i<n;i++){
+         cs1=v1[i],cs2=v2[i];
+         if(cs1[0]>='A'&&cs2[0]>='A'){
+              if(cs1>cs2)
+                   return false;
+              if(cs1<cs2)
+                   return true;
+         }
+         if(cs1[0]>='A'&&cs2[0]<'A')
+              return false;
+         if(cs1[0]<'A'&&cs2[0]>'A') 
+              return true;
+         if(cs1[0]<'A'&&cs2[0]<'A'){
+              if(stoull(cs1)>stoull(cs2))
+                   return false;
+              if(stoull(cs1)<stoull(cs2))
+                   return true;
+         }
+     }
+
+     if(v2.size()>v1.size())
+          return true; 
+     for(int i=0;i<n;i++)
+          if(v1[i].size()>v2[i].size())
+               return true;
+     return false;
+     
+}
