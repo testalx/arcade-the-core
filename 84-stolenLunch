@@ -1,0 +1,13 @@
+std::string stolenLunch(std::string note) {
+string x;
+unsigned i,n=note.size();
+for(i=0;i<n;i++)
+if(note[i]>='0'&&note[i]<='9')
+    x+=note[i]-'0'+'a';
+else
+ if(note[i]>='a'&&note[i]<'k')
+    x+=note[i]-'a'+'0';
+else x+=note[i];
+
+return x;
+}
