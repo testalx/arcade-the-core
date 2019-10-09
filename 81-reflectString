@@ -1,0 +1,7 @@
+std::string reflectString(std::string inputString) {
+string a="abcdefghijklmnopqrstuvwxyz",s=inputString;
+for(unsigned i=0;i<inputString.size();i++)
+    s[i]=a[25-(s[i]-'a')];
+cout<<s;
+return s;
+}
