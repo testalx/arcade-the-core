@@ -1,0 +1,26 @@
+int c1,c2,i,combs(auto s, auto t) {
+    
+     for(auto c : s){
+        c1 <<= 1;
+        if(c == '*')
+            c1 |= 1;
+    }
+    
+    for(auto c : t){
+        c2 <<= 1;
+        if(c == '*')
+            c2 |= 1;
+    }
+    
+    c1 <<= 10;  //sa fie la mijloc
+    int ans = 1e20;
+    for(; i<20; i++){
+        
+        if(!(c1 & c2)){
+            int a = max(10+s.length(), i+t.length()) - min(10, i);
+            ans=min(ans,a);
+        }
+        c2 <<=1;
+    }
+    return ans;
+}
