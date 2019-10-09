@@ -1,0 +1,17 @@
+int minimalNumberOfCoins(std::vector<int> coins, int price) {
+int k=0,i=coins.size()-1;
+//cout<<i;
+while(price>0&&i>=0)
+{
+    while(price>=coins[i])
+    {
+        price-=coins[i];
+//cout<<"pretul devine "<<price;
+        k++;
+    }
+
+i--;
+}
+
+return k;
+}
