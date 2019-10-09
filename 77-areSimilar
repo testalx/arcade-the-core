@@ -1,0 +1,44 @@
+bool areSimilar(std::vector<int> A, std::vector<int> B) {
+vector<int>v=A;
+bool ok=false;
+if(A==B) return 1;
+
+unsigned i,j,n=A.size();
+/*
+for(i=0;i<n-1;i++)
+    for(j=i+1;j<n;j++)
+    {
+   if(v[i]-v[j])
+   {swap(v[i],v[j]);}
+        if(v==B)
+            ok=1;
+        //v=A;
+       if(v[i]-v[j])
+        swap(v[i],v[j]);  //e tot aia
+        
+//AVEM IESIRE DIN TIMP LA NISTE TESTE!1! DE OPTIMIZAT!!!
+    }
+*/
+//incercam alta idee: daca v[i] nu e pe aceeasi pozitie in B, il cautam si vedem daca/unde il gasim. apoi schimbam si testam egalitatea
+/*
+for(i=0;i<n;i++)
+{
+ int x=v[i];
+if(B[i]==x) continue;
+ for(j=0;j<n;j++)
+  if(x==B[j]&&i!=j)
+  {swap(v[i],v[j]);
+   if(v==B) continue;
+else return 0;}
+}
+return 1;
+*/
+//acu ideea copiata
+int d=0,a,b;
+for(i=0;i<n;i++)
+ if(A[i]!=B[i])
+ {d++;a=i;}
+sort(A.begin(),A.end());
+sort(B.begin(),B.end());
+return (d==0 || d==2) && A==B;
+}
