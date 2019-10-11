@@ -1,0 +1,18 @@
+vector<vector<string>> roteste(vector<vector<string>>a)
+{
+    string aux=a[3][2];
+    a[3][2]=a[2][1];
+    a[2][1]=a[3][0];
+    a[3][0]=a[1][0];
+    a[1][0]=a[0][1];
+    a[0][1]=a[1][2];
+    a[1][2]=aux;
+return a;
+}
+
+std::vector<std::vector<std::string>> volleyballPositions(std::vector<std::vector<std::string>> formation, int k) {
+k%=6;
+for(int i=1;i<=k;i++)
+    formation=roteste(formation);
+return formation;
+}
