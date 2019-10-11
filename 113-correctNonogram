@@ -1,0 +1,54 @@
+//intr-un subprogram facem apoi testarea unui singur vector cu un singur sir
+//Atentie!...AIA E MATRICE DE STRINGURI!!!
+bool verif(vector<int>v, string s)
+{
+    //daca corespunde schema numerelor din v cu # din s. alg o sa semene cu cel cu impartirea in cuvinte. compunem un vector cu lungimile "cuvintelor" formate din # si comparam cu vectorul v.
+    int i=0;
+    string cuv;
+vector<int>a;
+    while(i<s.size())
+    {while(i<s.size()&&s[i]=='.')i++; //acu suntem pe primul # sau la final
+    cuv.clear();
+    while(i<s.size()&&s[i]=='#')
+        cuv.push_back(s[i++]);
+    if(cuv.size()) 
+        a.push_back(cuv.size());
+    }
+return a==v;
+}
+//dupa ce o scriem pe verif trebuie apelata pentru sirurile generate in subprogramul urmator
+bool correctNonogram(int size, std::vector<std::vector<std::string>> nonogramField) {
+//facem impartirea in 2 vectori, 1 cu numerele de pe linie/coloana, iar celalalt cu linia/coloana respectiva ca sir de caractere
+vector<int>v;string s;
+for(int i=(size+1)/2;i<nonogramField.size();i++)
+{   cout<<"\nLinia "<<i+1<<":";
+    v.clear();s.clear();
+    for(int j=0;j<(size+1)/2;j++)
+        if(nonogramField[i][j]!="-")
+          //  if(nonogramField[i][j].size()==1)   
+            //    v.push_back(nonogramField[i][j][0]-'0');
+          //  else 
+v.push_back(stoi(nonogramField[i][j]));
+    for(int j=(size+1)/2;j<nonogramField[i].size();j++)
+        s+=nonogramField[i][j];
+    for(int k=0;k<v.size();k++)
+        cout<<v[k]<<" ";
+    cout<<"/sirul:"<<s;
+    if(verif(v,s)==0) return 0;
+}
+//acu acelasi lucru pentru coloane
+for(int i=(size+1)/2;i<nonogramField.size();i++)
+{   cout<<"\nColoana "<<i+1<<":";
+    v.clear();s.clear();
+    for(int j=0;j<(size+1)/2;j++)
+        if(nonogramField[j][i]!="-")
+            v.push_back(stoi(nonogramField[j][i])); 
+    for(int j=(size+1)/2;j<nonogramField[i].size();j++)
+        s+=nonogramField[j][i];
+    for(int k=0;k<v.size();k++)
+        cout<<v[k]<<" ";
+    cout<<"/sirul:"<<s;
+    if(verif(v,s)==0) return 0;
+}
+return 1;
+}
