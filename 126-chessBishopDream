@@ -1,0 +1,17 @@
+std::vector<int> chessBishopDream(std::vector<int> boardSize, std::vector<int> initPosition, std::vector<int> initDirection, int k) {
+
+std::vector<long> r(2);
+    for (int i = 0; i < 2; i++) {
+        r[i] = initPosition[i];
+        r[i] += initDirection[i] * k;
+        r[i] %= boardSize[i] * 2;
+        r[i] += boardSize[i] * 2;
+        r[i] %= boardSize[i] * 2;
+        if (r[i] >= boardSize[i]) {
+            r[i] = boardSize[i] * 2 - 1 - r[i];
+        }
+        initPosition[i] = r[i];
+    }
+    return initPosition;
+
+}
