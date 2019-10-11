@@ -1,0 +1,36 @@
+std::vector<std::string> bishopDiagonal(std::string bishop1, std::string bishop2) {
+int l1,l2,c1,c2;
+vector<string>v;
+if(bishop2<bishop1) swap(bishop1,bishop2);
+l1=bishop1[0]-96;
+c1=bishop1[1]-'0';
+l2=bishop2[0]-96;
+c2=bishop2[1]-'0';
+cout<<"l1="<<l1<<" c1="<<c1<<" l2="<<l2<<" c2="<<c2<<endl;
+if(abs(l1-l2)!=abs(c1-c2)) //nu sunt pe aceeasi diagonala
+{
+ if(bishop1<bishop2)
+ {v.push_back(bishop1);v.push_back(bishop2);}
+ else
+{v.push_back(bishop2);v.push_back(bishop1);}
+}
+else //acu tre sa ii departam. operatia depinde de care e la stanga si care e la dreapta (sau sus si jos?)
+{
+cout<<"l1="<<l1<<" c1="<<c1<<" l2="<<l2<<" c2="<<c2<<endl;
+ if(l1>l2||c1>c2)
+{while(l1<8&&c1>1){l1++;c1--;}
+while(l2>1&&c2<8){l2--;c2++;}
+}
+else
+{while(l1>1&&c1>1){l1--;c1--;}
+while(l2<8&&c2<8){l2++;c2++;}
+}
+bishop1[0]=l1+96;
+bishop1[1]=c1+'0';
+bishop2[0]=l2+96;
+bishop2[1]=c2+'0';
+ if(bishop2<bishop1) swap(bishop1,bishop2);//ca sa fie primul mereu 1   
+v.push_back(bishop1);v.push_back(bishop2);
+}
+return v;
+}
