@@ -1,0 +1,54 @@
+bool bisect(int an)
+{
+    if(an%400==0) return 1;
+    else 
+        if(an%100==0) return 0;
+        else return an%4==0;
+}
+
+
+//int pz=4; //1 ian 1970 a fost joi
+std::string regularMonths(std::string currMonth) {
+vector<int>z={0,31,28,31,30,31,30,31,31,30,31,30,31};   //e pus la shto luna 0 cu zero zile
+string lunacur=currMonth.substr(0,2),ancur=currMonth.substr(3,4);
+cout<<"siruri:"<<lunacur<<' '<<ancur<<endl;
+int lcur=stoi(lunacur);
+int acur=0;
+for(int i=0;i<ancur.size();i++)
+    acur=acur*10+(ancur[i]-'0');
+cout<<"numere:"<<lcur<<' '<<acur<<'\n';
+
+int zile=0;  //cate zile au trecut de la 1 ian 1970 pana la 1 ian anul curent
+for(int an=1970;an<acur;an++)
+    if(bisect(an)) zile+=366;
+        else zile+=365;
+for(int luna=1;luna<=lcur;luna++)
+    zile+=z[luna];
+if(bisect(acur))
+    zile++;
+cout<<"nrzile:"<<zile<<endl;   //ar trebui sa fie numarul de zile pana la inceputul lunii de dupa cea curenta
+while(zile%7!=4)   //rest 4 ar fi la zilele de luni
+{//cautam prima luna care este asa cum trebe.crestem zile, luna , ani
+    lcur++;
+cout<<"\nVerificam luna "<<lcur;
+    if(lcur>12)
+    {acur++;lcur-=12;
+     if(bisect(acur)) 
+        zile++;
+    }
+    zile+=z[lcur];
+cout<<"\navem pana acum zile:"<<zile;
+}
+//UITASEM SA CRESC NRZILE IN CAZ CA ANUL CURENT E BISECT, PT CA NU SE PUNEA LA CALCUL
+if(lcur==12){acur++;lcur=1;}
+else lcur++;
+cout<<"\nraspuns:"<<lcur<<' '<<acur<<endl;
+string s;
+if(lcur>=10)
+s=to_string(lcur);
+else s="0"+to_string(lcur);
+
+s+="-";
+s+=to_string(acur);
+return s;
+}
