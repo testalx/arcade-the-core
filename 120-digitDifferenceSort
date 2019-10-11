@@ -1,0 +1,22 @@
+int cifre(int n)
+{int c=9,C=0;
+while(n)
+{if(c>n%10) c=n%10;
+if(C<n%10) C=n%10;
+n/=10;}
+return C-c;}
+
+std::vector<int> digitDifferenceSort(std::vector<int> a) {
+vector<int>d;
+int n=a.size();
+for(int i=0;i<n;i++)
+    d.push_back(cifre(a[i]));
+for(int i=0;i<n-1;i++)
+//cout<<d[i]<<' ';
+ 
+    for(int j=i+1;j<n;j++)
+        if(d[i]>=d[j])
+        {swap(a[i],a[j]);swap(d[i],d[j]);}
+
+return a;
+}
