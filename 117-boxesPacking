@@ -1,0 +1,19 @@
+bool boxesPacking(std::vector<int> length, std::vector<int> width, std::vector<int> height) {
+    vector<vector<int>> boxes;
+    for(int m=0; m<length.size(); m++){
+        vector<int> temp = {length[m], width[m], height[m]};
+        sort(temp.begin(), temp.end());
+        boxes.push_back(temp);
+    }
+    
+    sort(boxes.begin(), boxes.end(), [](vector<int> a, vector<int> b)
+         {
+            return a[0] < b[0];  
+         });
+    
+    for(int m=1; m<boxes.size(); m++){
+        if(boxes[m][0] <= boxes[m-1][0] || boxes[m][1] <= boxes[m-1][1] || boxes[m][2] <= boxes[m-1][2])
+            return false;
+    }
+    return true;
+}
