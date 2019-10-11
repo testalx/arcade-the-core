@@ -1,0 +1,24 @@
+int newYearCelebrations(std::string t, std::vector<int> c) {
+int h = stoi(t.substr(0, 2));
+    int m = stoi(t.substr(3, 2));
+    
+    int time = h * 60 + m;
+    
+    int newyear = 24 * 60;
+    time == 0 ? time = newyear : 0;
+    
+    int r = 0;
+    int p = 0;
+    for(a : c)   //ZERO
+    {
+        r += time == newyear;
+        a = a - p;     //unu
+        if(time < newyear && time + a >= newyear)   
+            r++;
+        time += a - 60;     
+        p += a;
+    }
+    if(time <= newyear)
+        r++;
+    return r;   //trei
+}
