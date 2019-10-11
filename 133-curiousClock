@@ -1,0 +1,8 @@
+//C#
+string curiousClock(string someTime, string leavingTime) {
+    DateTime lt = DateTime.Parse(leavingTime);
+    DateTime st = DateTime.Parse(someTime);
+    TimeSpan ts = lt.Subtract(st);
+    DateTime rt = st.Subtract(ts);
+    return rt.ToString("yyyy-MM-dd HH:mm");
+}
